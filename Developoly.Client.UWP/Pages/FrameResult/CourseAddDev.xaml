@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="Developoly.Client.UWP.Pages.FrameResult.CourseAddDev"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Developoly.Client.UWP.Pages.FrameResult"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="Black" Opacity="0.8" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="150" />
+            <RowDefinition Height="3*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="150" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="38">
+                <Run Foreground="LightGray" FontWeight="Light" Text="Congratulations you add the developper"></Run>
+                <Run x:Name="txtNameOfDev" Foreground="{StaticResource JellyBeanDark}" FontWeight="Bold" ></Run>
+                <Run Foreground="LightGray" FontWeight="Light" Text="to a course in the school"></Run>
+                <Run x:Name="txtNameOfSchool" Foreground="{StaticResource JellyBeanDark}" FontWeight="Bold"></Run>
+        </TextBlock>
+        <controls:RadialProgressBar x:Name="RadialProgressBarReady" Grid.Row="2" Grid.Column="1" Value="0" Thickness="6" Minimum="0" Maximum="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Foreground="#FF4D8983" Outline="LightGray" />
+        <TextBlock x:Name="txtTimer" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" FontSize="90" Foreground="LightGray" FontWeight="Bold" Text="3" HorizontalTextAlignment="Center" Margin="4 0 0 8"/>
+        <Grid Grid.Row="5"  Grid.ColumnSpan="3" Margin="0 15 0 0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1">
+                <TextBlock Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="35">
+                    <Run Foreground="LightGray" FontWeight="Light" Text="Your developper going learn"></Run>
+                    <Run x:Name="txtNameSkill" Foreground="{StaticResource CitrineDark}" FontWeight="Bold"></Run>
+                    <Run Foreground="LightGray" FontWeight="Light" Text="at a level of"></Run>
+                    <Run x:Name="txtLevelSkill" Foreground="{StaticResource CitrineDark}" FontWeight="Bold"></Run>
+                    <Run Foreground="LightGray" FontWeight="Light" Text="in"></Run>
+                    <Run x:Name="txtTurn" Foreground="{StaticResource CitrineDark}" FontWeight="Bold"></Run>
+                    <Run Foreground="LightGray" FontWeight="Light" Text="turn(s)"></Run>
+                </TextBlock>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

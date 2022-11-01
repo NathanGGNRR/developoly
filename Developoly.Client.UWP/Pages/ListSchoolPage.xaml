@@ -1,0 +1,65 @@
+﻿<Page
+    x:Class="Developoly.Client.UWP.Pages.ListSchoolPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Developoly.Client.UWP.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    NavigationCacheMode="Enabled">
+
+    <Grid>
+        <Grid Margin="15">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="1" Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid x:Name="gridEmptySchools" Grid.Row="2" Canvas.ZIndex="4" Visibility="Collapsed">
+                    <TextBlock FontSize="45" Foreground="{StaticResource Citrine}" FontWeight="Light" Text="EMPTY" TextWrapping="Wrap" Padding="0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="45" Foreground="{StaticResource PayneGrey}" FontWeight="Bold" Text="All school(s):" TextWrapping="Wrap" Margin="10 0 0 0"/>
+                <ListView x:Name="listAllSChool" Grid.Row="2" Background="{StaticResource ListViewColorFirst}" BorderBrush="LightGray" BorderThickness="1" IsItemClickEnabled="False" ItemContainerStyle="{StaticResource ListViewItemContainerStyleSelected}">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Height="100" BorderThickness="0 0 0 1" BorderBrush="LightGray">
+                                <StackPanel Orientation="Horizontal" Margin="10">
+                                    <Image Source="../Assets/Pictures/School/school.png"/>
+                                    <TextBlock Margin="20 0 0 0" VerticalAlignment="Center" FontSize="25" Foreground="{StaticResource PayneGrey}" FontWeight="Bold" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" PointerEntered="Link_PointerOver" PointerExited="Link_PointerExited" PointerPressed="LinkSchool_PointerPressed" Tag="{Binding}"/>
+                                    <Grid Margin="20 0 0 0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition Height="40"/>
+                                        </Grid.RowDefinitions>
+                                        <Image Source="../Assets/Pictures/Courses/courses.png" Grid.RowSpan="2" Height="50"/>
+                                        <Grid Grid.Row="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition Width="20"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Border Grid.Column="1" Background="{StaticResource JellyBean}" CornerRadius="100" BorderThickness="3" BorderBrush="{StaticResource JellyBeanDark}">
+                                                <TextBlock FontSize="20" Foreground="{StaticResource MenuTextColor}" FontWeight="Normal" Text="{Binding Courses.Count, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" TextWrapping="Wrap" Padding="0 0 0 5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                            </Border>
+                                        </Grid>
+                                    </Grid>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>
